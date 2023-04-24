@@ -27,7 +27,11 @@ export async function generateMetadata({
   return { title: post.title };
 }
 
-export default async function Post({ params }: { params: { postId: string } }) {
+export default async function Posts({
+  params,
+}: {
+  params: { postId: string };
+}) {
   const posts = getSortedPostsData(); //deduped
   const { postId } = params;
   if (!posts.find((post) => post.id === postId)) {
